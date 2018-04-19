@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="reading_ReadingWindowView">
+    <attr format="reference" name="reading_img_src"/>
+    <attr name="reading_move_mode">
+      <enum name="fit_image" value="0"/>
+      <enum name="ratio_4_3" value="1"/>
+      <enum name="ratio_3_4" value="2"/>
+      <enum name="square" value="3"/>
+      <enum name="ratio_16_9" value="4"/>
+      <enum name="ratio_9_16" value="5"/>
+      <enum name="free" value="6"/>
+      <enum name="custom" value="7"/>
+      <enum name="circle" value="8"/>
+      <enum name="circle_square" value="9"/>
+    </attr>
+    <attr format="reference|color" name="reading_background_color"/>
+    <attr format="reference|color" name="reading_overlay_color"/>
+    <attr format="reference|color" name="reading_frame_color"/>
+    <attr format="reference|color" name="reading_handle_color"/>
+    <attr format="reference|color" name="reading_guide_color"/>
+    <attr name="reading_guide_show_mode">
+      <enum name="show_always" value="1"/>
+      <enum name="show_on_touch" value="2"/>
+      <enum name="not_show" value="3"/>
+    </attr>
+    <attr name="reading_handle_show_mode">
+      <enum name="show_always" value="1"/>
+      <enum name="show_on_touch" value="2"/>
+      <enum name="not_show" value="3"/>
+    </attr>
+    <attr format="dimension" name="reading_handle_size"/>
+    <attr format="dimension" name="reading_touch_padding"/>
+    <attr format="dimension" name="reading_min_frame_size"/>
+    <attr format="dimension" name="reading_frame_stroke_weight"/>
+    <attr format="dimension" name="reading_guide_stroke_weight"/>
+    <attr format="boolean" name="reading_move_enabled"/>
+    <attr format="float" name="reading_initial_frame_scale"/>
+    <attr format="boolean" name="reading_animation_enabled"/>
+    <attr format="integer" name="reading_animation_duration"/>
+    <attr format="boolean" name="reading_handle_shadow_enabled"/>
+  </declare-styleable>
+</resources>
