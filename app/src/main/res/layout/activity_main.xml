@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,6 +8,28 @@
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
+
+
+
+    <com.readingwindow.ReadingWindow
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/readingWindow"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        custom:mvw_move_mode="free"
+        custom:mvw_handle_color="@color/colorAccent"
+        custom:mvw_guide_color="@color/colorAccent"
+        custom:mvw_overlay_color="@color/colorPrimary"
+        custom:mvw_frame_color="@color/colorAccent"
+        custom:mvw_handle_size="14dp"
+        custom:mvw_frame_stroke_weight="5dp"
+        custom:mvw_guide_stroke_weight="5dp"/>
+
+
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
