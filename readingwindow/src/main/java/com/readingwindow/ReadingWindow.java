@@ -378,6 +378,35 @@ public class ReadingWindow extends ImageView {
         matrix.mapRect(applied, rect);
         return applied;
     }
+
+
+
+    public void setshow()
+    {
+        setVisibility(VISIBLE);
+        invalidate();
+
+    }
+
+    public void sethide()
+    {
+        setVisibility(GONE);
+        invalidate();
+
+    }
+
+
+    public Boolean isvisible()
+    {
+     if(getVisibility()==VISIBLE)
+     {
+         return true;
+     }
+        return false;
+    }
+
+
+
     private RectF calcFrameRect(RectF imageRect) {
         float frameW = getRatioX(imageRect.width());
         float frameH = getRatioY(imageRect.height());
@@ -1041,12 +1070,7 @@ public class ReadingWindow extends ImageView {
     public void setTouchPaddingInDp(int paddingDp) {
         mTouchPadding = (int) (paddingDp * getDensity());
     }
-    /**
-     * Set guideline show mode.
-     * (SHOW_ALWAYS/NOT_SHOW/SHOW_ON_TOUCH)
-     *
-     * @param mode guideline show mode
-     */
+
     public void setGuideShowMode(ShowMode mode) {
         mGuideShowMode = mode;
         switch (mode) {
@@ -1060,12 +1084,7 @@ public class ReadingWindow extends ImageView {
         }
         invalidate();
     }
-    /**
-     * Set handle show mode.
-     * (SHOW_ALWAYS/NOT_SHOW/SHOW_ON_TOUCH)
-     *
-     * @param mode handle show mode
-     */
+
     public void setHandleShowMode(ShowMode mode) {
         mHandleShowMode = mode;
         switch (mode) {
@@ -1079,56 +1098,32 @@ public class ReadingWindow extends ImageView {
         }
         invalidate();
     }
-    /**
-     * Set frame stroke weight in density-independent pixels.
-     *
-     * @param weightDp frame stroke weight in density-independent pixels.
-     */
+
     public void setFrameStrokeWeightInDp(int weightDp) {
         mFrameStrokeWeight = weightDp * getDensity();
         invalidate();
     }
-    /**
-     * Set guideline stroke weight in density-independent pixels.
-     *
-     * @param weightDp guideline stroke weight in density-independent pixels.
-     */
+
     public void setGuideStrokeWeightInDp(int weightDp) {
         mGuideStrokeWeight = weightDp * getDensity();
         invalidate();
     }
-    /**
-     * Set whether to show getCroppedBitmap frame.
-     *
-     * @param enabled should show getCroppedBitmap frame?
-     */
+
     public void setCropEnabled(boolean enabled) {
         mismoveingEnabled = enabled;
         invalidate();
     }
-    /**
-     * Set locking the getCroppedBitmap frame.
-     *
-     * @param enabled should lock getCroppedBitmap frame?
-     */
+
     @Override
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
         mIsEnabled = enabled;
     }
-    /**
-     * Set initial scale of the frame.(0.01 ~ 1.0)
-     *
-     * @param initialScale initial scale
-     */
+
     public void setInitialFrameScale(float initialScale) {
         mInitialFrameScale = constrain(initialScale, 0.01f, 1.0f, DEFAULT_INITIAL_FRAME_SCALE);
     }
-    /**
-     * Set whether to animate
-     *
-     * @param enabled is animation enabled?
-     */
+
     public void setAnimationEnabled(boolean enabled) {
         mIsAnimationEnabled = enabled;
     }

@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (readingWindow.getVisibility()==View.VISIBLE) {
-                    readingWindow.setVisibility(View.GONE);
+                if (readingWindow.isvisible()) {
+                    readingWindow.sethide();
                 } else {
-                    readingWindow.setVisibility(View.VISIBLE);
+                    readingWindow.setshow();
                 }
             }
         });
