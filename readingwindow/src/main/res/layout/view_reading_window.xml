@@ -6,46 +6,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <View
-        android:id="@+id/blackView1"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="@color/black_transparent"
-        android:clickable="false" />
-
-    <LinearLayout
-        android:id="@+id/readingWindowViewContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <View
-            android:id="@+id/blackView3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:background="@color/black_transparent"
-            android:clickable="false" />
-
-        <View
-            android:id="@+id/readingWindowView"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="1" />
-
-        <View
-            android:id="@+id/blackView4"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:background="@color/black_transparent"
-            android:clickable="false" />
-
-    </LinearLayout>
-
-    <View
-        android:id="@+id/blackView2"
+    <com.readingwindow.ReadingWindow
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/readingWindow1"
+        android:scaleType="fitXY"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black_transparent"
-        android:clickable="false" />
+        custom:reading_move_mode="free"
+        custom:reading_handle_color="@color/colorAccent_black"
+        custom:reading_guide_color="@color/colorAccent_black"
+        custom:reading_overlay_color="@color/colorAccent_black"
+        custom:reading_frame_color="@color/colorAccent_black"
+        custom:reading_handle_size="14dp"
+        custom:reading_frame_stroke_weight="5dp"
+        custom:reading_guide_stroke_weight="5dp"/>
+
+
 
 </LinearLayout>
