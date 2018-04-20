@@ -19,14 +19,14 @@
         android:scaleType="fitXY"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        custom:mvw_move_mode="free"
-        custom:mvw_handle_color="@color/colorAccent"
-        custom:mvw_guide_color="@color/colorAccent"
-        custom:mvw_overlay_color="@color/colorPrimary"
-        custom:mvw_frame_color="@color/colorAccent"
-        custom:mvw_handle_size="14dp"
-        custom:mvw_frame_stroke_weight="5dp"
-        custom:mvw_guide_stroke_weight="5dp"/>
+        custom:reading_move_mode="free"
+        custom:reading_handle_color="@color/colorAccent"
+        custom:reading_guide_color="@color/colorAccent"
+        custom:reading_overlay_color="@color/colorPrimary"
+        custom:reading_frame_color="@color/colorAccent"
+        custom:reading_handle_size="14dp"
+        custom:reading_frame_stroke_weight="5dp"
+        custom:reading_guide_stroke_weight="5dp"/>
 
 
 
