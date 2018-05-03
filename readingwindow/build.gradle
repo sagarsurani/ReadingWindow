@@ -1,92 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'com.github.dcendents.android-maven'
-
-// for Bintray
-/*def projectVersionCodeNr = Integer.parseInt(projectVersionCode);
-def libGit = "https://github.com/sagarsurani/ReadingWindow.git";
-def libUrl = "https://github.com/sagarsurani/ReadingWindow";
-def libDescription = "Android library to Reading Window."
-def libGroupId = "com.readingwindow.android";
-def libArtifactId = "v1";*/
-
-// for Maven
-group = libGroupId
-version = projectVersionName
-
-ext {
-    bintrayRepo = 'ReadingWindow'
-    bintrayName = 'ReadingWindow'
-
-    publishedGroupId = 'com.readingwindow.android'
-    libraryName = 'ReadingWindow'
-    artifact = 'v1'
-
-    libraryDescription = 'Android library to Reading Window.'
-
-    siteUrl = 'https://github.com/sagarsurani/ReadingWindow'
-    gitUrl = 'https://github.com/sagarsurani/ReadingWindow.git'
-
-    libraryVersion = '1.1.3'
-
-    developerId = 'sagarkumarsurani'
-    developerName = 'Sagar Surani'
-    developerEmail = 'sagarkumarsurani@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-
-
-
-
-
-
-
-
-/*install {
-    repositories.mavenInstaller {
-        pom.project {
-            name libArtifactId
-            description libDescription
-            url libUrl
-            inceptionYear '2016'
-
-            packaging 'aar'
-            groupId libGroupId
-            artifactId libArtifactId
-            version projectVersionName
-
-            licenses {
-                license {
-                    name 'MIT'
-                    url libLicenseUrl
-                }
-            }
-        }
-    }
-}
-
-bintray {
-    user = bintray_user
-    key = bintray_apikey
-    pkg {
-        repo = libGroupId
-        name = libArtifactId
-//        userOrg = bintray_user_org
-        licenses = ['MIT']
-        vcsUrl = libGit
-        version {
-            name = projectVersionName
-            gpg {
-                sign = true
-                passphrase = bintray_gpg_passphrase
-            }
-        }
-    }
-    configurations = ['archives']
-}*/
 
 
 android {
@@ -110,5 +22,5 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
 }
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+
+apply from: '../maven_push.gradle'
