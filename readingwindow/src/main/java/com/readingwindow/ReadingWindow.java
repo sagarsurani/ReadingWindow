@@ -238,7 +238,7 @@ public class ReadingWindow extends ImageView {
         }
     }
 
-    public static void setbackground(int color)
+    public static void setBackground(int color)
     {
         readingWindowView.setOverlayColor(color);
         readingWindowView.setFrameColor(color);
@@ -271,10 +271,22 @@ public class ReadingWindow extends ImageView {
         readingWindowView.setReadingAreaColor(getColorWithAlpha(readingWindowView.mBackgroundColor,alpha));
 
     }
-    public static  void setDefaultSize(int width,int height)
+    public static  void setDefaultSize(int x,int y,int width,int height)
     {
 
-        readingWindowView.setupLayout(width,height);
+    /*    readingWindowView.mLastX=width;
+        readingWindowView.mLastY=height;*/
+       //  readingWindowView.mImgWidth=width;
+      //  readingWindowView.mImgHeight=height;
+
+       // readingWindowView.setupLayout1(width,height);
+
+        readingWindowView.setupLayout1(width,height);
+        readingWindowView.moveFrame(x,y);
+        readingWindowView.invalidate();
+      // readingWindowView.setCustomRatio(width,height);
+       // readingWindowView.setCenter(new PointF(readingWindowView.getPaddingLeft() + width * 0.5f, readingWindowView.getPaddingTop() + height * 0.5f));
+
 
     }
 
@@ -287,12 +299,9 @@ public class ReadingWindow extends ImageView {
     }
     public static void show(Activity activity) {
         currentactivty=activity;
-
         ViewGroup parentView = (ViewGroup) ((ViewGroup) activity
                 .findViewById(android.R.id.content)).getChildAt(0);
-
         read = activity.getLayoutInflater().inflate(R.layout.view_reading_window, null);
-
         readingWindowViewContainer = read.findViewById(R.id.readingWindow);
         readingWindowView=read.findViewById(R.id.readingWindow1);
         parentView.addView(read);
@@ -405,8 +414,7 @@ public class ReadingWindow extends ImageView {
                         (float) Math.ceil(mImageRect.right), (float) Math.ceil(mImageRect.bottom));
         if (!mIsAnimating && (mMoveMode == MoveMode.CIRCLE || mMoveMode == MoveMode.CIRCLE_SQUARE)) {
             path.addRect(overlayRect, Path.Direction.CW);
-            PointF circleCenter = new PointF((mFrameRect.left + mFrameRect.right) / 2,
-                    (mFrameRect.top + mFrameRect.bottom) / 2);
+            PointF circleCenter = new PointF(0.5f,0.3f);
             float circleRadius = (mFrameRect.right - mFrameRect.left) / 2;
             path.addCircle(circleCenter.x, circleCenter.y, circleRadius, Path.Direction.CCW);
             canvas.drawPath(path, mPaintTranslucent);
@@ -422,6 +430,8 @@ public class ReadingWindow extends ImageView {
         mPaintFrame.setStyle(Paint.Style.STROKE);
         mPaintFrame.setColor(mFrameColor);
         mPaintFrame.setStrokeWidth(mFrameStrokeWeight);
+
+
         canvas.drawRect(mFrameRect, mPaintFrame);
     }
     private void setMatrix() {
@@ -435,13 +445,20 @@ public class ReadingWindow extends ImageView {
         setCenter(new PointF(getPaddingLeft() + viewW * 0.5f, getPaddingTop() + viewH * 0.5f));
         setScale(calcScale(viewW, viewH, mAngle));
         setMatrix();
-        mImageRect = calcImageRect(new RectF(-50, 0, dpWidth + 100, dpHeight), mMatrix);
+        mImageRect = calcImageRect(new RectF(-50, 0, dpWidth + 100, dpHeight+100), mMatrix);
         mFrameRect = calcFrameRect(mImageRect);
-
-
         mIsInitialized = true;
         invalidate();
     }
+    private void setupLayout1(int viewW, int viewH) {
+        mImageRect = calcImageRect(new RectF(-50, 0, dpWidth + 100, dpHeight+100), mMatrix);
+        mFrameRect = new RectF(0,  0, viewH*2, viewW*2);
+        mIsInitialized = true;
+        invalidate();
+    }
+
+
+
     private float calcScale(int viewW, int viewH, float angle) {
         mImgWidth = dpWidth;
         mImgHeight = dpHeight;
@@ -532,6 +549,10 @@ public class ReadingWindow extends ImageView {
     private void onMove(MotionEvent e) {
         float diffX = e.getX() - mLastX;
         float diffY = e.getY() - mLastY;
+
+
+
+
         switch (mTouchArea) {
             case CENTER:
                 moveFrame(diffX, diffY);
@@ -1089,7 +1110,7 @@ public class ReadingWindow extends ImageView {
     }
     public void setCustomRatio(int ratioX, int ratioY, int durationMillis) {
         if (ratioX == 0 || ratioY == 0) return;
-        mMoveMode = MoveMode.CUSTOM;
+        mMoveMode = MoveMode.FREE;
         mCustomRatio = new PointF(ratioX, ratioY);
         recalculateFrameRect(durationMillis);
     }
